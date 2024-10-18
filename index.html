@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-------------- Image Favicons  -------------->
+    <link rel="shortcut icon" href="Images/logo.png" type="image/x-icon">
+    <!-------------- Font AweSome File  -------------->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-------------- Bootstrap CSS File  -------------->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-------------- Main Css File  -------------->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Yummy</title>
+</head>
+
+<body>
+
+    <!-------------------------- Loader ------------------->
+    <div class="loading h-100 w-100 bg-black d-flex align-items-center justify-content-center position-fixed  z-3">
+        <span class="loader">Loading</span>
+    </div>
+    <!-------------------------- Loader ------------------->
+
+    <!-------------- Start of Navbar Section ------------------->
+    <nav class="d-flex justify-content-between position-fixed top-0 min-vh-100 z-2">
+        <div class="nav-links min-vh-100 p-4 d-flex justify-content-between flex-column">
+            <div class="links ">
+                <ul class="list-unstyled d-flex flex-column gap-3">
+                    <li><a class="text-decoration-none" id="linkSearch" href="#">Search</a></li>
+                    <li onclick="getCategories()"><a class="text-decoration-none" id="linkCategories"
+                            href="#">Categories</a></li>
+                    <li onclick="getAreaMeals()"><a class="text-decoration-none" id="linkArea" href="#">Area</a></li>
+                    <li onclick="getIngredients()"><a class="text-decoration-none" id="linkIngredients"
+                            href="#">Ingredients</a></li>
+                    <li onclick="contactUsForm()"><a class="text-decoration-none" id="linkContactUs" href="#">Contact
+                            Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <div class="social-media d-flex text-white gap-2 align-items-center">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-solid fa-globe"></i></a>
+                </div>
+                <div class="footer text-white">
+                    <p>Copyright Â© 2019 All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo bg-white py-4 px-2 d-flex flex-column justify-content-between align-items-center">
+            <a href=""><img src="Images/logo.png" class="rounded-2" alt="Yummy Logo"></a>
+            <i class="fa-solid Bars fa-2x fa-align-justify"></i>
+            <div class="icons d-flex flex-column gap-1">
+                <a class="text-black" href="#"><i class="fa-solid fa-globe"></i></a>
+                <a class="text-black" href="#"><i class="fa-solid fa-share-nodes"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!-------------- End of Navbar Section ------------------->
+
+
+    <!-------------- Search Section ------------------->
+    <section class="search">
+        <div class="container">
+            <div class="row py-4" id="searchInput">
+            </div>
+        </div>
+    </section>
+    <!-------------- Search Section ------------------->
+
+
+
+    <!-------------------------- Default Data  ------------------------>
+    <section class="row-Data">
+        <div class="container">
+            <div class="row g-4 py-4" id="rowData">
+            </div>
+        </div>
+    </section>
+    <!-------------------------- Default Data  ------------------------>
+
+
+
+    <!-------------------------- Categories  ------------------------>
+    <section class="categories">
+        <div class="container">
+            <div class="row mt-5 g-4" id="rowDataCategories">
+            </div>
+        </div>
+    </section>
+    <!-------------------------- Categories  ------------------------>
+
+
+
+    <!-------------------------- Area  ------------------------>
+    <section class="Area">
+        <div class="container">
+            <div class="row mt-5 g-4" id="rowDataArea">
+            </div>
+        </div>
+    </section>
+    <!-------------------------- Area  ------------------------>
+
+
+
+
+    <!-------------------------- Ingredients  ------------------------>
+    <section class="Ingredients">
+        <div class="container">
+            <div class="row mt-5 g-4" id="rowDataIngredients">
+            </div>
+        </div>
+    </section>
+    <!-------------------------- Ingredients  ------------------------>
+
+
+
+    <!-------------------------- Contact Us ------------------->
+    <section class="contactUs d-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 m-auto min-vh-100 d-flex align-items-center">
+                    <form class="row g-4" id="rowContactUs">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-------------------------- Contact Us ------------------->
+
+
+
+    <!-------------------------- Bootstrap File JS ------------------->
+    <script src="Js/bootstrap.bundle.min.js"></script>
+    <!-------------------------- JQuery File JS ------------------->
+    <script src="Js/jquery-3.7.1.min.js"></script>
+    <!-------------------------- Script File JS ------------------->
+    <script src="Js/script.js"></script>
+</body>
+
+</html>
