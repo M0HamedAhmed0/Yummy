@@ -470,54 +470,55 @@ function contactUsForm() {
 }
 
 /////////////////////////////////// Validation Input Form ///////////////////////////////////////////
-document.addEventListener("input", function () {
+document.addEventListener("input", function (event) {
     const nameRegex = /^[a-zA-Z ]+$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const phoneRegex = /^\d{11}$/;
     const ageRegex = /^(1[89]|[2-9][0-9])$/;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    const name = document.getElementById("nameInput").value;
-    const email = document.getElementById("emailInput").value;
-    const phone = document.getElementById("phoneInput").value;
-    const age = document.getElementById("ageInput").value;
-    const password = document.getElementById("passwordInput").value;
-    const rePassword = document.getElementById("rePasswordInput").value;
+    // Get the target field and its value
+    const target = event.target;
+    const value = target.value;
 
-    const nameAlert = document.getElementById("nameAlert");
-    const emailAlert = document.getElementById("emailAlert");
-    const phoneAlert = document.getElementById("phoneAlert");
-    const ageAlert = document.getElementById("ageAlert");
-    const passwordAlert = document.getElementById("passwordAlert");
-    const rePasswordAlert = document.getElementById("rePasswordAlert");
+    // Define alerts for validation
+    const alerts = {
+        nameInput: document.getElementById("nameAlert"),
+        emailInput: document.getElementById("emailAlert"),
+        phoneInput: document.getElementById("phoneAlert"),
+        ageInput: document.getElementById("ageAlert"),
+        passwordInput: document.getElementById("passwordAlert"),
+        rePasswordInput: document.getElementById("rePasswordAlert"),
+    };
 
-    // Name validation
-    nameAlert.classList.toggle("d-none", nameRegex.test(name));
+    // Validate based on field ID
+    if (target.id === "nameInput") {
+        alerts.nameInput.classList.toggle("d-none", nameRegex.test(value));
+    } else if (target.id === "emailInput") {
+        alerts.emailInput.classList.toggle("d-none", emailRegex.test(value));
+    } else if (target.id === "phoneInput") {
+        alerts.phoneInput.classList.toggle("d-none", phoneRegex.test(value));
+    } else if (target.id === "ageInput") {
+        alerts.ageInput.classList.toggle("d-none", ageRegex.test(value));
+    } else if (target.id === "passwordInput") {
+        alerts.passwordInput.classList.toggle(
+            "d-none",
+            passwordRegex.test(value)
+        );
+    } else if (target.id === "rePasswordInput") {
+        const password = document.getElementById("passwordInput").value;
+        alerts.rePasswordInput.classList.toggle("d-none", value === password);
+    }
 
-    // Email validation
-    emailAlert.classList.toggle("d-none", emailRegex.test(email));
-
-    // Phone validation
-    phoneAlert.classList.toggle("d-none", phoneRegex.test(phone));
-
-    // Age validation
-    ageAlert.classList.toggle("d-none", ageRegex.test(age));
-
-    // Password validation
-    passwordAlert.classList.toggle("d-none", passwordRegex.test(password));
-
-    // Re-password validation
-    rePasswordAlert.classList.toggle("d-none", password === rePassword);
-
-    // Enable submit button
+    // Check if all fields are valid to enable submit button
     const isValid =
-        nameRegex.test(name) &&
-        emailRegex.test(email) &&
-        phoneRegex.test(phone) &&
-        ageRegex.test(age) &&
-        passwordRegex.test(password) &&
-        password === rePassword;
-
+        nameRegex.test(document.getElementById("nameInput").value) &&
+        emailRegex.test(document.getElementById("emailInput").value) &&
+        phoneRegex.test(document.getElementById("phoneInput").value) &&
+        ageRegex.test(document.getElementById("ageInput").value) &&
+        passwordRegex.test(document.getElementById("passwordInput").value) &&
+        document.getElementById("passwordInput").value ===
+            document.getElementById("rePasswordInput").value;
     document.getElementById("submitBtn").disabled = !isValid;
 });
 
